@@ -1,0 +1,91 @@
+@charset "utf-8";
+/* CSS Document */
+@font-face {
+	font-family: "Digital-7";
+	src: url("digital-7mono.ttf");
+}
+	
+body {
+	text-align:center; 
+	padding:0px; 
+	margin:0px; 
+	background-color:black;
+}
+
+#cabecera{
+	height:70px; 
+	margin:5px; 
+	margin-bottom:1px; 
+	padding: 0px; 
+	font-size:32px; 
+	line-height: 0px; 
+	font-family: Digital-7; 
+	color: red; 
+	border:solid; 
+	border-color:red; 
+	border-radius:10%; 
+	border-width:medium; 
+	background-color:green;
+}
+
+#aux{
+	margin:5px; 
+	margin-top:0px; 
+	padding: 5px; 
+	border:solid;
+	border-color:red; 
+	border-radius:2%; 
+	border-width:medium; 
+	text-align:center; 
+	background-color:white;
+}
+
+#imagen{
+	float: left; 
+	height:500px; 
+	margin:0; 
+	padding: 0;
+}
+		
+#marcas{
+	float: left; 
+	font-size:20px; 
+	margin:0px; 
+	padding: 0px; 
+	color: blue; 
+	width:50%;
+}
+
+#aux2{
+	height:480px; 
+	margin:10px; 
+	margin-left:70px; 
+	margin-right:70px; 
+	border:solid; 
+	border-color:red; 
+	border-radius:10%; 
+	border-width:medium;
+}
+
+#ayuda{
+	height:500px; 
+	font-size:20px; 
+	color: black; 
+	width:100%; 
+	margin:0px; 
+	padding: 0px;
+}
+
+#crono{
+	clear:both; 
+	position:absolute; 
+	top:255px; 
+	left:74px; 
+	font-family: Digital-7; 
+	color:green; 
+	background-color:black;
+	font-size:6em; 
+	min-width:225px; 
+	min-height:125px;
+}
+

@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Ejercicio javascript opcional</title>
+</head>
+<body>
+
+<h2>Uso de javascript y formateo &lt pre &gt </h2>
+
+<pre>
+<script type="text/javascript">
+var palabra = {saludo: 'hola', despedida: 'adiós' };
+document.writeln('palabra.saludo    -> ' + palabra.saludo); // forma 1 con punto
+document.writeln('palabra.despedida -> ' + palabra['despedida']); // forma 2 con paréntesis
+document.writeln('palabra.vivienda  -> ' + palabra.vivienda); // forma 1 con punto
+document.writeln('');
+document.writeln('typeof palabra           -> ' + typeof(palabra)); // forma 1 con espacio
+document.writeln('typeof palabra.saludo    -> ' + typeof(palabra.saludo)); // forma 1 con espacio
+document.writeln('typeof palabra.vivienda  -> ' + typeof palabra.vivienda); // forma 2 con paréntesis
+
+</script>
+
+</pre>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Ejercicio 8.6</title>
+  <script type="text/javascript" src="zepto.min.js"></script>
+  <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+  <script type="text/javascript" src="gmaps.js"></script>
+  <link rel="stylesheet" type="text/css" href="Ejercicio_8.6.css" />
+  <script type="text/javascript">
+    var map, lat, lng, lat_ini, lng_ini;
+    var mi_color_aux = '0000FF';
+    var mi_color;
+    
+
+
+    $(function(){
+
+      function enlazarMarcador(e){
+
+        mi_color_aux = mi_color_aux.substring(4) + mi_color_aux.substring(0,4);
+        mi_color = '#' + mi_color_aux;
+
+       // muestra ruta entre marcas anteriores y actuales
+        map.drawRoute({
+          origin: [lat, lng],  // origen en coordenadas anteriores
+          // destino en coordenadas del click o toque actual
+          destination: [e.latLng.lat(), e.latLng.lng()],
+          travelMode: 'driving',
+          strokeColor: mi_color,
+          strokeOpacity: 0.6,
+          strokeWeight: 5
+        });
+
+        lat = e.latLng.lat();   // guarda coords para marca siguiente
+        lng = e.latLng.lng();
+
+        map.addMarker({ lat: lat, lng: lng});  // pone marcador en mapa
+      };
+
+      function geolocalizar(){
+        GMaps.geolocate({
+          success: function(position){
+            lat = position.coords.latitude;  // guarda coords en lat y lng
+            lng = position.coords.longitude;
+            lat_ini = lat;
+            lng_ini = lng;
+
+            map = new GMaps({  // muestra mapa centrado en coords [lat, lng]
+              el: '#map',
+              lat: lat,
+              lng: lng,
+              click: enlazarMarcador,
+              tap: enlazarMarcador
+            });
+            map.addMarker({ lat: lat, lng: lng});  // marcador en [lat, lng]
+          },
+          error: function(error) { alert('Geolocalización falla: '+error.message); },
+          not_supported: function(){ alert("Su navegador no soporta geolocalización"); },
+        });
+      };
+
+      //FUNCION COMPACTAR
+      function compactar(){
+
+        //Borramos todos los marcadores y la ruta
+        map.cleanRoute();
+        map.removeMarkers();
+
+        //Añadimos los marcadores inicial y final
+        map.addMarker({lat: lat_ini, lng: lng_ini});
+        map.addMarker({lat: lat, lng: lng});
+
+        //Mostramos la ruta compactada
+        map.drawRoute({
+          origin: [lat_ini, lng_ini],
+          destination: [lat, lng],
+          travelMode: 'driving',
+          strokeColor: '#000000',
+          strokeOpacity: 0.6,
+          strokeWeight: 5
+        });
+      };
+
+
+      //FUNCION REDUCIR
+      function reducir(){
+        map.removeMarkers();
+        map.addMarker({lat: lat_ini, lng: lng_ini});
+        map.addMarker({lat: lat, lng: lng});
+      }
+
+      $(boton_compactar).click(compactar);
+      $(boton_reducir).click(reducir);
+      $(boton_resetear).click(geolocalizar);
+
+      geolocalizar();
+    });
+  </script>
+</head>
+<body>
+  <div id="header">
+  <h1>Geolocalización</h1>
+  <button type="button" id="boton_compactar" class="button">Compactar Ruta Directa</button>
+  <button type="button" id="boton_reducir" class="button">Eliminar Puntos Intermedios</button>
+  <button type="button" id="boton_resetear" class="button">Resetear</button>
+  </div>
+  <div id="map"></div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+<title>Ejercicio Cronómetro táctil</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="estilo.css">
+<script type="text/javascript" src="zepto.min.js"></script>
+<script type="text/javascript" src="touch.js"></script>
+<script type="text/javascript">
+$(function() {
+    var t, cl = $("#crono"), pl = $("#paradas"), tactil = $("#zonatactil");
+    function mostrar() {
+        cl.html((+cl.html() + 0.1).toFixed(1));
+    }
+    function arrancar() {
+        t = setInterval(mostrar, 100);
+    }
+    function parar() {
+        clearInterval(t);
+        pl.html(pl.html() + cl.html() + '<br />');
+        t = undefined;
+    }
+    function cambiar() {
+        if (!t) {
+            arrancar();
+        } else {
+            parar();
+        }
+    }
+    function inicializar() {
+        cl.html(" 0.0 ");
+        pl.html("<hr /><h2>Paradas realizadas:</h2>");
+    }
+    tactil.on("tap", cambiar);
+	tactil.on("swipe", inicializar);
+});
+</script>
+</head>
+<body>
+<h1>Ejercicio cronometro táctil</h1>
+<h2>Toca el cronómetro para arrancarlo o pararlo.<br />Desliza el dedo sobre él para reiniciarlo</h2>
+<div id="zonatactil">
+<h2><span id="crono"> 0.0 </span> segundos</h2>
+<!--
+<button type="button" id="cambiar">arrancar/parar</button>
+<button type="button" id="inicializar">inicializar</button>
+-->
+</div>
+<div id="paradas"><hr /><h2>Paradas realizadas:</h2></div>
+</body>
+</html>

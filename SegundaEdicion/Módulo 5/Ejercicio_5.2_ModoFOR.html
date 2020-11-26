@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+	</head>
+	
+	<body>
+		<h1>Utilización del bucle FOR</h1>
+
+		<script type="text/javascript">
+
+		var suma = 0;
+
+		for (sumando = 0; sumando !== "ACABAR"; sumando = sumando) /*Cuando escribes "acabar" ó "ACABAR" sales del bucle"*/
+		{
+			
+			sumando = parseFloat(sumando); /*Se pasa la respuesta tipo string a tipo float*/
+			if (isNaN(sumando) === false) /*Si la string no era un número el valor será NaN. Esa será la condición para saber si la respuesta reocgida es un número válido.*/
+			{
+				suma = suma + sumando;
+				sumando = prompt ("La suma total es :"+suma+".\nAñade el siguiente sumando de la suma.");
+			}
+			else
+			{
+				sumando = prompt ("No has introducido un número.\nLa suma total es :"+suma+".\nAñade el siguiente sumando de la suma.");
+			}
+				
+			
+			if (sumando === null)
+			{
+				sumando = 0;
+				alert('Si quieres salir introduce el valor "ACABAR"');
+			}
+			else
+			{
+				sumando = sumando.toUpperCase();
+			}
+
+		}
+		
+		document.writeln("<p>La suma total de todos los elementos es: <b>"+suma+"</b></p>");
+		</script>
+		
+	</body>
+</html>

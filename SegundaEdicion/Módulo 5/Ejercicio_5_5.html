@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+	<title>Pregunta</title><meta charset="UTF-8">
+	<script type="text/javascript">
+
+		function res() {
+			var respuesta = document.getElementById('respuesta');
+			var resultado = document.getElementById('resultado');
+
+			aux_respuesta = respuesta.value;
+			aux_respuesta = aux_respuesta.toUpperCase()
+			
+			if ((aux_respuesta === "CRISTÓBAL COLÓN") || (aux_respuesta === "CRISTÓBAL COLON") || (aux_respuesta === "CRISTOBAL COLÓN") || (aux_respuesta === "CRISTOBAL COLON"))
+				resultado.innerHTML = "Correcto, Cristóbal Colón";	
+			else if ((aux_respuesta === "CRISTÓBAL") || (aux_respuesta === "CRISTOBAL") || (aux_respuesta === "COLÓN") || (aux_respuesta === "COLON")) {
+				respuesta.value = respuesta.value;
+				resultado.innerHTML = respuesta.value + ", ¿y que más?"; 
+			}
+			else {
+				/***************************************************************************/
+				respuesta.value = "pruebe otra vez"; //Sólo es necesario añadir esta línea
+				/***************************************************************************/
+				resultado.innerHTML = "No es correcto"; 
+				
+			}
+		}
+	</script>
+</head>
+<body>
+	<h4> Pregunta </h4>
+	<p> ¿Quien descubrió América? </p> 
+
+	<input type="text" id="respuesta" value="responda aquí">
+
+	<button type="button" onclick="res()">consultar</button>
+
+	<p><div id="resultado" /></p>
+  
+</body>
+</html>

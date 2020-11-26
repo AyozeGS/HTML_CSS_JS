@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Ejercicio 5.4</title>
+	
+    <style type="text/css">
+		body{ text-align: center; color: #0F0DE0;}
+		#fecha{ width : 50%; margin : auto;
+			padding: 15px; border: solid; border-radius: 50%; border-color: #0F0DE0; background-color: #8AAFE1; cursor: pointer;}
+		.valores { color : #FFF; font-size : 2em; margin-right : 5px;}
+		.unidades {margin-right : 15px;}
+		#estado{color:red;}
+	</style>
+    
+    
+    <script type="text/javascript">
+		/*Función que para/reanuda el reloj valorando una variable de estado */
+		function parar_reanudar() {
+			estado = document.getElementById("estado");
+			if (parado === false) { 
+				clearInterval(refresco_de_fecha);
+				estado.innerHTML = "Parado";
+				parado = true;
+			} else if (parado === true) {
+				refresco_de_fecha = setInterval(mostrar_fecha, 1);
+				estado.innerHTML = "";
+				parado = false;
+			}
+		}
+		/* Función que muestra el reloj capturando la fecha y  obteniendo sus distintos valores*/
+	    function mostrar_fecha() {
+  			reloj = document.getElementById("fecha");
+			var mi_fecha = new Date();
+			var horas = mi_fecha.getHours();
+			var minutos = mi_fecha.getMinutes();
+			var segundos = mi_fecha.getSeconds();
+			var milisegundos = mi_fecha.getMilliseconds();
+			/* Al mantener la misma longitud de los datos se consigue más armonía */
+			if (horas<10) {horas = '0'+horas}
+			if (minutos<10) {minutos = '0'+minutos}
+			if (segundos<10) {segundos = '0'+segundos}
+			if (milisegundos<10) {milisegundos = '00'+milisegundos}
+			else if (milisegundos<100) {milisegundos = '0'+milisegundos}
+			
+  			reloj.innerHTML = '<span class="valores">'+ horas +'</span><span class="unidades">horas</span> <span class="valores">'+ minutos + '</span><span class="unidades">minutos</span> <span class="valores">'+ segundos + '</span><span class="unidades">segundos</span> <span class="valores">'+ milisegundos + '</span><span class="unidades">milisegundos</span>';
+		}
+	</script>
+    
+</head>
+
+<body>
+	<h1>Mi Reloj</h1>
+	<div id="fecha"></div>
+    <div id="estado"></div>
+    
+	<script type="text/javascript">
+		// Inicializamos valores
+		mostrar_fecha();
+		refresco_de_fecha = setInterval(mostrar_fecha, 1);
+		reloj = document.getElementById("fecha");
+		parado = false; 
+		reloj.addEventListener('click',parar_reanudar); //Manejador de eventos
+	</script>
+</body>
+</html>

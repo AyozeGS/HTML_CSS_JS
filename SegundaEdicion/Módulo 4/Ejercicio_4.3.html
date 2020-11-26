@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Ejercicio if/else</title>
+</head>
+
+<body>
+	<h1>Acierta la pregunta</h1>
+    
+    <script type="text/javascript">
+		var respuesta = prompt("¿Quién descubrió América?");
+		
+		if (respuesta === "Cristobal Colón" || respuesta === "Cristóbal Colón" || respuesta === "Cristobal Colon" || respuesta === "Cristóbal Colon"){
+			document.writeln("Correcto, Cristóbal Colón descubrió América");
+		}
+		else if (respuesta === "Cristobal" || respuesta === "Cristóbal" || respuesta === "Colon" || respuesta === "Colón") {
+			document.writeln("Te has quedado corto. ¿" + respuesta + " y que más?");
+		}
+		else {
+			document.writeln("Su respuesta .." + respuesta + ".. no es correcta");
+		}
+	</script>
+        
+</body>
+</html>

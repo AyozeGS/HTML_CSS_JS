@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>FontFace y GoogleFont</title>
+
+<!--Accedo a una fuente del servidor de google-->
+<link href='https://fonts.googleapis.com/css?family=The+Girl+Next+Door' rel='stylesheet' type='text/css'>
+
+<style type="text/css">
+/*Accede a la fuente de mozilla descargada a través de su posición relativa y le asigno un nombre de familia de fuente*/
+@font-face {
+    font-family: 'FiraSansOT_bold_italic';
+    src: url('./Fuentes/firasansot-bolditalic-webfont.eot') format('embedded-opentype'),
+	url('./Fuentes/firasansot-bolditalic-webfont.woff') format('woff'),
+	url('./Fuentes/firasansot-bolditalic-webfont.ttf') format('truetype'),
+	url('./Fuentes/firasansot-bolditalic-webfont.svg') format('svg');
+}
+
+/*Uso la fuente de mozilla en el parrafo de la clase mozillafont*/
+p.mozillafont {
+	font-family: 'FiraSansOT_bold_italic';
+	font-size: xx-large;
+}
+
+/*Aplico la fuente de google a un parrafo de la clase googlefont*/
+p.googlefont {
+	font-family: 'The Girl Next Door';
+	font-size: xx-large;
+}
+</style>
+</head>
+
+<body>
+<p class="mozillafont">Texto con fuente FiraSansOT: BoldItalic.</p>
+<p class="googlefont">Texto con fuente de Google: The Girl Next Door.</p>
+</body>
+</html>

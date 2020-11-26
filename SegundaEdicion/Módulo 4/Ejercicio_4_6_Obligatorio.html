@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Propiedades Objeto DOM: </title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+    	<h1 id="cabecera">Propiedades de elemento: </h1>
+		<div id="contenido">
+			<table id="tabla"> </table>
+		</div>
+        
+		<script type="text/javascript">
+			////////////////////////////////////////////////////////////////
+			/*Obtención de la respuesta del usuario y procesado del string*/
+			////////////////////////////////////////////////////////////////
+			var respuesta = prompt("Indica un objeto DOM"); //Pedir respuesta
+			var objeto;
+			
+			if (respuesta === 'this' || respuesta === 'window')
+			{ //Comprobamos que se pida el objeto window
+				objeto = window;
+			}
+			else{
+				
+				if(respuesta.indexOf('this.') === 0){ //Comprobamos si se ha puesto this.
+					respuesta = respuesta.substring(5);
+				}
+				else if(respuesta.indexOf('window.') === 0){ //Comprobamos si se ha puesto window.
+					respuesta = respuesta.substring(7);
+				}
+				/*if (respuesta in window){ // Revisamos que el objeto sea propiedad de window
+					objeto=window[respuesta]; // Obtenemos el objeto DOM a partir de la respuesta
+				}
+				else {
+					alert('Esta propiedad no existe en el árbol DOM'); // Avisamos si no es válida.
+					contenido.innerHTML+="<p>NO EXISTE EL OBJETO</p>"
+				}*/
+				objeto=window[respuesta]; // Obtenemos el objeto DOM a partir de la respuesta
+			}
+			
+			///////////////////////////////////////////////////////////////////////////////////////////
+			/*Comprobación del objeto: Si es undefined se indica por mensaje y si no se crea la tabla*/
+			///////////////////////////////////////////////////////////////////////////////////////////
+			if (objeto === undefined){
+				alert("Esta propiedad no existe en el árbol DOM");
+				cabecera.innerHTML+="error";
+				contenido.innerHTML+="<p>No existe el elemento</p>";
+			}
+			else if (typeof(objeto) === "object") {	
+				cabecera.innerHTML += respuesta;
+				tabla.innerHTML+="<tr class='categoria'><th>Propiedad</th><th>Valor</th></tr>"; // Cabecera de tabla
+				//Bucle que recorre el objeto para mostrar los valores de sus elementos
+				var i;
+				for(i in objeto){
+					// No se muestra valor si el elemento es función y objeto: No imprimible
+					if (typeof(objeto[i]) === "object" || typeof(objeto[i]) === "function") {
+						tabla.innerHTML += "<tr><td class='izquierda'>" 
+											+ i 
+											+ "</td><td class='derecha'>No imprimible</td></tr>";
+					}
+					else{
+						tabla.innerHTML += "<tr><td class='izquierda'>" 
+											+ i 
+											+ "</td><td class='derecha'>" 
+											+ objeto[i] 
+											+ "</td></tr>";
+					}
+				}
+			}
+			else if (typeof(objeto) === "function") {
+				cabecera.innerHTML += respuesta;
+				contenido.innerHTML += '<p>El elemento elegido es de tipo function: No imprimible.</p>';
+			}
+			else {
+				
+				tipo = typeof(objeto)
+				cabecera.innerHTML += respuesta;
+				contenido.innerHTML += '<p>El elemento elegido es tipo ' + tipo + ' de valor "' + objeto + '".</p>';		
+			}
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,58 @@
+@charset "utf-8";
+
+body{
+	background-color: #BBFFBB;
+}
+
+nav {
+width: auto;
+font-family: Impact;
+}
+
+h1 {
+text-align: center;
+color: #FF0000;
+font-size: 5em;
+border-style: solid;
+border-left-width: 30px;
+border-right-width: 30px;
+border-color: #FF7777;
+
+}
+
+ul {
+width: 15%;
+font-size: 2em;
+list-style-type: none;
+padding: 0;
+margin: 0;
+border-style: solid;
+border-width: 5px;
+border-color: #FF7777;
+}
+
+a {
+text-decoration: none;
+display: block;
+border-style: groove;
+padding: 3px;
+margin: 0;
+text-align: center;
+color: red;
+border-color: #FF7777;
+}
+
+a:hover {
+
+border-style: groove;
+border-right-width: 5px;
+color: green;
+border-color: #77FF77;
+background-color: #FF7777;
+border-left-style: solid;
+border-left-width: 30px;
+border-right-style: solid;
+border-right-width: 30px;
+}
+
+</style>

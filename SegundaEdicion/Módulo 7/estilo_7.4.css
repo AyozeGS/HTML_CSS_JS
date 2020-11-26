@@ -1,0 +1,27 @@
+@charset "utf-8";
+/* CSS Document */
+
+@font-face {
+	font-family: "Digital-7";
+	src: url("digital-7mono.ttf");
+}
+
+body, html {
+	margin: 0px;
+	padding: 0px;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(214,215,220,1);
+	text-align:center;
+}
+
+#vector {
+	max-height: 100%;
+	max-width: 100%;	
+}
+
+#mytext{
+	font-family: Digital-7;
+	text-align: center;
+	}
+

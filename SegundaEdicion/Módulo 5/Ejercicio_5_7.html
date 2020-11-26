@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+	<title>Pregunta</title><meta charset="UTF-8">
+    <script type="text/javascript" src="zepto.min.js"></script>
+	<script type="text/javascript">
+	
+		$(function() {
+			$("#res").on('click', function() {
+				aux_respuesta = $("#respuesta").val();
+				aux_respuesta = aux_respuesta.toUpperCase();
+			
+				if ((aux_respuesta === "CRISTÓBAL COLÓN") || (aux_respuesta === "CRISTÓBAL COLON") || (aux_respuesta === "CRISTOBAL COLÓN") || (aux_respuesta === "CRISTOBAL COLON")) {
+					$('#resultado').html("Correcto, Cristóbal Colón");
+				}
+				else if ((aux_respuesta === "CRISTÓBAL") || (aux_respuesta === "CRISTOBAL") || (aux_respuesta === "COLÓN") || (aux_respuesta === "COLON")) {
+					$('#resultado').html($('#respuesta').val() + ", ¿y que más?");
+				}
+				else {
+					/***************************************************************************/
+					/***************************************************************************/
+					$('#respuesta').val("pruebe otra vez"); //Sólo era necesario añadir esta línea.
+					//respuesta.value = "pruebe otra vez"; // Sin usar zepto era así.
+					/***************************************************************************/
+					/***************************************************************************/
+					$('#resultado').html("No es correcto");
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+	<h4> Pregunta </h4>
+	<p> ¿Quien descubrió América? </p> 
+	<input type="text" id="respuesta" value="responda aquí">
+	<button type="button" id="res">consultar</button>
+	<p><div id="resultado" /></p>
+</body>
+</html>
