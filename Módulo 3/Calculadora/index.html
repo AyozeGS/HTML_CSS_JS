@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Calculadora</title>
+    <meta charset="utf-8" />
+    <style>
+      html {
+        text-align: center;
+      }
+    </style>
+
+    <script type="text/javascript">
+      /*Variables globales*/
+      let resultado = 0; //numero tecleado
+      let operador = ""; //operador pulsado
+
+      /*Funciones auxiliares*/
+      const vaciar = () => {
+        document.getElementById("pantalla").value = "";
+      };
+
+      const validar = (valor) => {
+        if (isNaN(valor)) {
+          return false;
+        } else {
+          return true;
+        }
+      };
+
+      const rellenar_info = (x) => {
+        let info = document.getElementById("info");
+        if (x == "Error") {
+          info.innerHTML = "Info: El resultado no es un número";
+        } else {
+          if (200 < x) {
+            info.innerHTML = "Info: El resultado es superior a 200";
+          } else {
+            if (x >= 100 && x <= 200) {
+              info.innerHTML = "Info: El resultado está entre 100 y 200";
+            } else {
+              info.innerHTML = "Info: El resultado es menor que 100";
+            }
+          }
+        }
+      };
+
+      const guardar_variables = (operador_binario) => {
+        let num = document.getElementById("pantalla");
+        operador = operador_binario;
+        resultado = +num.value;
+      };
+
+      /*Operaciones unitarias*/
+      const cuadrado = () => {
+        let num = document.getElementById("pantalla");
+        if (validar(num.value)) {
+          num.value = num.value * num.value;
+          rellenar_info(+num.value);
+        } else {
+          num.value = "Error";
+          resultado = 0;
+        }
+      };
+
+      const mod = () => {
+        let num = document.getElementById("pantalla");
+        if (validar(num.value)) {
+          if (+num.value < 0) {
+            num.value = -1 * num.value;
+          }
+          rellenar_info(num.value);
+        } else {
+          num.value = "Error";
+          resultado = 0;
+        }
+      };
+
+      const fact = () => {
+        let num = document.getElementById("pantalla");
+        let res = 1;
+        if (validar(num.value)) {
+          mod(); //ignora el signo en números negativos
+          for (let i = 1; i <= +num.value; i++) {
+            res *= i;
+          }
+          num.value = res;
+          rellenar_info(num.value);
+        } else {
+          num.value = "Error";
+          resultado = 0;
+        }
+      };
+
+      /*Operaciones binarias*/
+      const suma = () => {
+        let num = document.getElementById("pantalla");
+        operador = "suma";
+        if (validar(num.value)) {
+          resultado = resultado + num.value;
+        } else {
+          num.value = "Error";
+          resultado = 0;
+        }
+      };
+
+      const resta = () => {
+        let num = document.getElementById("pantalla");
+        operador = "resta";
+        if (validar(num.value)) {
+          resultado = resultado - num.value;
+        } else {
+          num.value = "Error";
+          resultado = 0;
+        }
+      };
+
+      const multiplicacion = () => {
+        let num = document.getElementById("pantalla");
+        operador = "multiplicacion";
+        if (validar(num.value)) {
+          resultado = resultado * num.value;
+        } else {
+          num.value = "Error";
+          resultado = 0;
+        }
+      };
+
+      const division = () => {
+        let num = document.getElementById("pantalla");
+        operador = "division";
+        if (validar(num.value)) {
+          switch (+num.value) {
+            case 0:
+              num.value = "Error";
+              resultado = 0;
+              break;
+            default:
+              resultado = resultado / num.value;
+          }
+        } else {
+          num.value = "Error";
+          resultado = 0;
+        }
+      };
+
+      const resto = () => {
+        let num = document.getElementById("pantalla");
+        operador = "resto";
+        if (validar(num.value)) {
+          switch (+num.value) {
+            case 0:
+              num.value = "Error";
+              resultado = 0;
+              break;
+            default:
+              resultado = resultado % +num.value;
+          }
+        } else {
+          num.value = "Error";
+          resultado = 0;
+        }
+      };
+
+      const potencia = () => {
+        let num = document.getElementById("pantalla");
+        let res_aux = resultado;
+        operador = "potencia";
+        if (validar(num.value)) {
+          if (+num.value == 0) {
+            //exponente 0
+          } else {
+            for (let i = 1; i < +num.value; i++) {
+              resultado = res_aux * resultado;
+            }
+            if (+num.value < 0) {
+              resultado = 1 / resultado; //exponente negativo
+            }
+          }
+        } else {
+          num.value = "Error";
+          resultado = 0;
+        }
+      };
+
+      const igual = () => {
+        let num = document.getElementById("pantalla");
+        if (validar(num.value)) {
+          switch (operador) {
+            case "suma":
+              suma();
+              break;
+            case "resta":
+              resta();
+              break;
+            case "multiplicacion":
+              multiplicacion();
+              break;
+            case "division":
+              division();
+              break;
+            case "resto":
+              resto();
+              break;
+            case "potencia":
+              potencia();
+              break;
+            default:
+              resultado = "Error";
+          }
+          num.value = resultado;
+          rellenar_info(num.value);
+          resultado = 0;
+        }
+      };
+
+      /*Operaciones CVS*/
+      const sumatorio = () => {
+        let num = document.getElementById("pantalla");
+        let vector = num.value.split(",");
+        let suma = 0;
+        for (let indice of vector) {
+          suma += +indice;
+        }
+        num.value = suma;
+        rellenar_info(+num.value);
+      };
+
+      //funcion auxiliar recomendado para ordenar numeros
+      function sortEggsInNest(a, b) {
+        if (validar(a) && validar(b)) {
+          return +a > +b ? 1 : +b > +a ? -1 : 0;
+        } else {
+          alert("Hay valores que no son números");
+        }
+      }
+
+      const ordenar = () => {
+        let num = document.getElementById("pantalla");
+        vector = num.value.split(",");
+        vector = vector.sort(sortEggsInNest);
+        num.value = vector;
+        rellenar_info(+num.value);
+      };
+
+      const revertir = () => {
+        let num = document.getElementById("pantalla");
+        vector = num.value.split(",");
+        num.value = vector.reverse();
+        rellenar_info(+num.value);
+      };
+
+      const quitar = () => {
+        let num = document.getElementById("pantalla");
+        vector = num.value.split(",");
+        vector.pop();
+        num.value = vector;
+        rellenar_info(+num.value);
+      };
+    </script>
+  </head>
+  <body>
+    <header>
+      <h1>Calculadora</h1>
+    </header>
+
+    <label for="pantalla">Número:</label>
+    <input type="text" id="pantalla" onclick="vaciar()" />
+    <button id="igual" onclick="igual()">=</button>
+    <h2 id="info" class="grande" title="Info sobre el número">
+      Info sobre el número
+    </h2>
+    <h3>Operaciones unitarias:</h3>
+    <button id="cuadrado" onclick="cuadrado()">x<sup>2</sup></button>
+    <button id="modulo" onclick="mod()">Mod</button>
+    <button id="factorial" onclick="fact()">n!</button>
+    <h3>Operaciones binarias:</h3>
+    <button id="suma" onclick="guardar_variables('suma')">+</button>
+    <button id="resta" onclick="guardar_variables('resta')">-</button>
+    <button id="multiplicacion" onclick="guardar_variables('multiplicacion')">
+      *
+    </button>
+    <button id="division" onclick="guardar_variables('division')">/</button>
+    <button id="resto" onclick="guardar_variables('resto')">%</button>
+    <button id="potencia" onclick="guardar_variables('potencia')">
+      x<sup>n</sup>
+    </button>
+    <h3>Operaciones en formato CSV:</h3>
+    <button id="sumatorio" onclick="sumatorio()">Sumatorio</button>
+    <button id="ordenar" onclick="ordenar()">Ordenar</button>
+    <button id="revertir" onclick="revertir()">Revertir</button>
+    <button id="quitar" onclick="quitar()">Quitar</button>
+  </body>
+</html>

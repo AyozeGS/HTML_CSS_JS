@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Secciones y líneas generales de un documento HTML5</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+  </head>
+  <body>
+    <div class="caja">
+      <header>
+        <h1>Secciones y líneas generales de un documento HTML5</h1>
+        <nav>
+          <ul>
+            <li>
+              <a href="#inicio"
+                ><strong
+                  >Secciones y líneas generales de un documento HTML5</strong
+                ></a
+              >
+            </li>
+            <li>
+              <a href="#problemas"
+                ><strong>Problemas resueltos por HTML5</strong></a
+              >
+            </li>
+            <li>
+              <a href="#algoritmo"
+                ><strong>El algoritmo de perfilado de HTML5</strong></a
+              >
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <div class="contenido">
+        <aside>
+          <h1>Nota</h1>
+          <p>
+            Cada sección puede tener su propia jerarquía de cabeceras. Por lo
+            tanto, incluso una sección anidada puede tener un elemento
+        <strong>&lt;h1&gt;</strong>.
+          </p>
+          <h3>Consulte también</h3>
+          <p>
+          <a href="https://developer.mozilla.org/es/docs/Sections_and_Outlines_of_an_HTML5_document">
+          <em>Definiendo cabeceras en <strong>HTML5</strong>.</em></a></p>
+          <h3>Lorem ipsum</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam,
+            corporis iste doloremque molestias nostrum nobis quos a aperiam
+            itaque totam asperiores temporibus iusto iure quisquam. Eligendi
+            aspernatur necessitatibus doloribus! Magni dolorem perferendis totam
+            officia nisi corrupti unde consectetur dolor. Hic dignissimos fugiat
+            magni quae velit id obcaecati corporis veritatis! Optio magni
+            repellat quaerat, iste fuga recusandae aperiam dolore tempora,
+            assumenda eligendi tempore, dignissimos praesentium. Aperiam
+            molestiae laboriosam hic sapiente odio autem esse? Dolores assumenda
+            id provident nulla autem. Inventore itaque porro odio enim est quos
+            ut tenetur consequuntur totam a molestiae, explicabo perspiciatis
+            vitae veniam corrupti, deserunt, quis quisquam dolorum ratione ipsa
+            quibusdam ad rerum voluptate? Quidem quaerat similique dolores,
+            repudiandae autem pariatur modi dignissimos quis optio, in facere?
+            Sequi maiores veniam nemo! Sapiente dolores odit fugit minus.
+            Molestias harum officiis sunt eos laborum incidunt minus autem
+            ducimus nostrum fugiat minima ratione, repudiandae consectetur iste
+            sapiente est veritatis asperiores saepe voluptatibus laboriosam.
+            Totam modi officiis architecto autem reiciendis nisi, nulla commodi
+            ea facere quaerat perferendis delectus numquam quo non accusamus
+            porro voluptates. Voluptas necessitatibus reprehenderit sint fugiat
+            possimus, corporis provident molestias nostrum nesciunt totam dicta
+            doloribus tenetur doloremque tempore nemo hic nobis harum, commodi
+            cum! Perspiciatis sequi voluptatibus aut? Nihil sapiente recusandae
+            consequuntur maiores commodi. Illo minima, temporibus nesciunt hic
+            doloribus ducimus. Ad reiciendis vel similique qui atque
+            necessitatibus, nemo, beatae veniam voluptas quam incidunt eos velit
+            neque, illo optio voluptatibus ducimus ipsum sint assumenda sit.
+            Consectetur quo veniam mollitia eveniet consequuntur dolores
+            exercitationem ratione maxime?
+          </p>
+        </aside>
+        <article>
+          <section id="inicio">
+            <div>
+              <h2>Secciones y líneas generales de un documento HTML5</h2>
+              <p>
+                La especificación <strong>HTML5</strong> trae muchos nuevos elementos a los
+                desarrolladores web, permitiéndoles describir la estructura de
+                un documento web con semántica estandarizada. Este documento
+                describe estos elementos y cómo usarlos para definir el perfil
+                de cualquier documento.
+              </p>
+            </div>
+          </section>
+          <section id="problemas">
+            <div>
+              <h2>Problemas resueltos por HTML5</h2>
+
+              <p>
+                La definición de la estructura de un documento en <strong>HTML 4</strong> y su
+                algoritmo de perfilado es muy tosco y genera numerosos
+                problemas:
+              </p>
+              <ul>
+                <li>
+                <strong>HTML5</strong> quita la necesidad de elementos <strong>&lt;div&gt;</strong> para definir
+                  secciones semánticas sin definir valores específicos para los
+                  atributos class, introduciendo un nuevo elemento,
+                  &lt;section&gt;, el elemento de sección <strong>HTML</strong>.
+                </li>
+                <li>
+                  Mezclar varios documentos es difícil: la inclusión de un
+                  sub-documento en un documento principal. Esto se resuelve en
+                <strong>HTML5</strong> con los elementos de seccionado (<strong>&lt;article&gt;</strong>,
+                <strong>&lt;section&gt;</strong>, <strong>&lt;nav&gt;</strong> y <strong>&lt;aside&gt;</strong>) son siempre
+                  subsecciones de su sección ancestra más cercana.
+                </li>
+                <li>
+                <strong>HTML5</strong> introduce el elemento
+                  <strong>&lt;hgroup&gt;</strong> que oculta todos los elementos
+                  de cabecera excepto el primero de más alto rango <em>(por ejemplo,
+                    <strong>&lt;hgroup&gt;&lt;h1&gt;</strong>Justine<strong>&lt;/h1&gt;&lt;h2&gt;</strong> Les
+                  Malheurs de la Vertu<strong>&lt;/h2&gt;&lt;/hgroup&gt;</strong> crea el perfil
+                  1. Justine).</em></strong>
+                </li>
+                <li>
+                  Un documento puede tener secciones especiales conteniendo
+                  información relacionado que no es parte del flujo principal.
+                  <strong>HTML5</strong> introduce el elemento
+                  <strong>&lt;aside&gt;</strong> permitiendo a dichas secciones
+                  no ser parte del perfil principal.
+                </li>
+                <li>
+                  Hay información relacionada no al documento pero si al sitio
+                  entero, como logos, menús, tablas de contenidos, o información
+                  de derechos de autor y notas legales. Para ese propósito,
+                <strong>HTML5</strong> introduce tres elementos de sección específicos:
+                  <strong>&lt;nav&gt;</strong> para colecciones de enlaces, como
+                  una tabla de contenidos, <strong>&lt;footer&gt;</strong> y
+                  <strong>&lt;header&gt;</strong> información relacionada con el
+                  sitio.
+                </li>
+              </ul>
+
+              <p>
+                De manera más general, <strong>HTML5</strong> trae precisión a las
+                características de seccionado y cabecera, permitiendo a los
+                perfiles de documento ser predecibles y usados por el navegador
+                para mejorar la experiencia de usuario.
+              </p>
+            </div>
+          </section>
+          <section id="algoritmo">
+            <div>
+              <h2>El algoritmo de perfilado de HTML5</h2>
+              <h3>Definiendo secciones en HTML5</h3>
+
+              <p>
+                Todo el contenido incluido dentro del elemento
+                <strong>&lt;body&gt;</strong> es parte de una sección. Las
+                secciones en <strong>HTML5</strong> pueden ser anidadas. Además
+                de la sección principal, definida por el elemento
+                <strong>&lt;body&gt;</strong>, los límites de la sección son
+                definidos explícita o implícitamente. La secciones definidas
+                explícitamente son el contenido definido en las etiquetas
+                <strong>&lt;body&gt;</strong>, <strong>&lt;section&gt;</strong>,
+                <strong>&lt;article&gt;</strong>,
+                <strong>&lt;aside&gt;</strong>, <strong>&lt;footer&gt;</strong>,
+                <strong>&lt;header&gt;</strong>, y <strong>&lt;nav&gt;</strong>.
+              </p>
+
+              <p>Ejemplo:</p>
+
+              <pre>
+                &lt;section&gt;
+                    &lt;h1&gt;Forest elephants&lt;/h1&gt;
+                &lt;section&gt;
+                    &lt;h1&gt;Introduction&lt;/h1&gt;
+                    &lt;p&gt;In this section, we discuss the lesser known forest elephants.
+                &lt;/section&gt;
+                &lt;section&gt;
+                    &lt;h1&gt;Habitat&lt;/h1&gt;
+                    &lt;p&gt;Forest elephants do not live in trees but among them.
+                &lt;/section&gt;
+                    &lt;aside&gt;
+                        &lt;p&gt;advertising block
+                    &lt;/aside&gt;
+                &lt;/section&gt;
+                &lt;footer&gt;
+                    &lt;p&gt;(c) 2010 The Example company
+                &lt;/footer&gt;
+                </pre
+              >
+            </div>
+          </section>
+        </article>
+      </div>
+      <footer>
+        A.G.S. Desarrollo Frontend con HTML, CSS y Javascript (10ª edición)
+      </footer>
+    </div>
+  </body>
+</html>

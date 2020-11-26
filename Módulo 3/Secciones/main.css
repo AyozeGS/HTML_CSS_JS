@@ -1,0 +1,133 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: peru;
+}
+
+.caja {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: midnightblue;
+}
+
+h1,
+h2 {
+  font-style: italic;
+  color: peru;
+  text-shadow: 2px 2px black;
+  padding-bottom: 10px;
+}
+
+header {
+  position: fixed;
+  width: 100%;
+  padding-top: 5px;
+  color: peru;
+  background-color: midnightblue;
+  text-align: center;
+  border-bottom-style: solid;
+}
+
+
+
+header ul {
+  width: 100%;
+  display: flex;
+  list-style-type: none;
+  justify-content: center;
+}
+
+header li {
+  padding: 10px 30px;
+  margin: 15px;
+  color: peru;
+  background-color: midnightblue;
+  border-radius: 10px 0px;
+  border-style: solid;
+}
+
+header li:hover {
+  background-color: peru;
+  color: midnightblue;
+}
+
+header a {
+  text-decoration: none;
+  color: inherit;
+}
+
+aside {
+  position: absolute;
+  right: 5px;
+  top: 135px;
+  width: 20%;
+  padding: 10px;
+  float: right;
+  margin-left: 50px;
+  color: midnightblue;
+  background-color: rgb(175, 195, 238);
+  z-index: -1;
+  text-align: justify;
+}
+
+aside h1{
+    text-align: center;
+    color: midnightblue;
+    text-shadow: 2px -2px red;
+    text-transform: uppercase;
+    margin-top: 20px;
+    font-size: xx-large;
+}
+
+aside h3 {
+  text-align: center;
+  color: peru;
+  padding-bottom: 10px;
+  margin-top: 20px;
+}
+
+article {
+  position: relative;
+  width: 77%;
+  padding: 0px 10px;
+  padding-bottom: 100px;
+  text-align: justify;
+  float: left;
+  z-index: -1;
+}
+
+section div {
+  padding: 30px;
+  background-color: rgb(175, 195, 238);
+}
+
+#inicio,
+#problemas,
+#algoritmo {
+  padding-top: 135px;
+}
+
+p {
+  padding: 20px 0px;
+}
+
+section ul {
+  padding: 20px 100px;
+}
+
+section li {
+  padding-top: 10px;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 10px 0px;
+  color: peru;
+  background-color: midnightblue;
+  text-align: center;
+  border-top-style: solid;
+}
